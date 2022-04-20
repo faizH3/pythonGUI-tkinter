@@ -302,5 +302,70 @@ Namun ada cara yang lebih efektif apabila kita ingin menambahkan teks terakhir. 
 
 ![](image/img_11.png)
 
+---
+### Assigning Widget to Frames dengan Widget Frame
+---
 
+Widget frame penting untuk mengatur tata letak widget dalam sebuah aplikasi.
+
+Skrip berikut membuat frame widget kosong di jendela aplikasi:
+
+```python
+#!/usr/bin/python3
+
+import tkinter as tk
+
+window = tk.Tk()
+
+frame = tk.Frame()
+
+frame.pack()
+
+window.mainloop()
+```
+
+Apa itu frame widget kosong? Jadi widget kosong karena kita belum menambahkan sebuah widget seperti berupa tombol dll. Namun perlu kalian ketahui bahwa frame ini dianggap sebagai wadah widget yang  lain.
+
+Ok, kita lihat frame dengan beberapa widget
+
+```python
+#!/usr/bin/python3
+
+import tkinter as tk
+
+window = tk.Tk()
+
+frame1 = tk.Frame()
+frame2 = tk.Frame()
+
+# label A, B dibungkus di frame1
+label = tk.Label(master=frame1, text='frame A')
+label.pack()
+
+label1 = tk.Label(master=frame1, text='frame B')
+label1.pack()
+
+# label C, D dibungkus di frame2
+label2 = tk.Label(master=frame2, text='frame C')
+label2.pack()
+
+label3 = tk.Label(master=frame2, text='frame D')
+label3.pack()
+
+frame1.pack()
+frame2.pack()
+
+window.mainloop()
+```
+
+![](image/img_12.png)
+
+untuk mengetahui perubahannya sekarang kita tukar posisi `frame.pack()` nya.
+
+```
+frame2.pack()
+frame1.pack()
+```
+
+![](image/img_13.png)
 
