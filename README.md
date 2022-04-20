@@ -80,7 +80,7 @@ window.mainloop()
 ```
 ---
 **Widget**
----
+
 Widget adalah roti dan mentega dari kerangka kerja GUI python tkinter. Mereka adalah elemen dimana pengguna berinteraksi dengan program. Setiap widget di tkinter didefinisikan oleh sebuah class. Berikut beberapa widget yang tersedia dan masih banyak lagi:
 
 | class widget | keterangan |
@@ -174,6 +174,9 @@ Lalu masukan teks di jendela:
 
 ![](image/img_2.png)
 
+---
+**Get**
+
 Sekarang kita buat variabel baru, kita akan mengambil teks `Hello, World!` dan mengirimkannya ke dalam python shell.
 
 ```
@@ -181,6 +184,9 @@ Sekarang kita buat variabel baru, kita akan mengambil teks `Hello, World!` dan m
 >>> hello
 'Hello, World!'
 ```
+
+---
+**Delete**
 
 Lalu kita hapus teks menggunakan `.delete()`
 Blok kode berikut menghapus karakter pertama.
@@ -191,4 +197,110 @@ Blok kode berikut menghapus karakter pertama.
 Teks di jendela akan seperti berikut:
 
 ![](image/img_4.png)
+
+Jadi entry widget tersebut, penghapusan di index di mulai dengan 0.
+
+Jika kita mau menghapus beberapa karakter, tambahkan argumen kedua di `.delete()` untuk menunjukan index terakhir berhenti. 
+
+```
+>>> entry.delete(0, 5)
+```
+
+![](image/img_5.png)
+
+Atau bisa gunakan tk.END pada argumen kedua, untuk penghapusan seluruhnya
+
+```
+>>> entry.delete(0, tk.END)
+```
+
+![](image/img_1.png)
+
+---
+**Insert**
+
+`.insert()` merupakan perintah untuk menyisipkan teks di dalam entry.
+
+```
+>>> entry.insert(0, 'python')
+```
+
+![](image/img_6.png)
+
+---
+### Membuat user input dengan widget text
+---
+
+Widget text bersifat multiline.
+
+Operasinya sama menggunkan widget entry. Namun cara pemanggilan index nya berbeda. Nanti kita lihat di bagian bawah caranya.
+
+```python
+#!/usr/bin/python3
+
+import tkinter as tk
+
+window = tk.Tk()
+
+textBox = tk.Text()
+
+textBox.pack()
+
+window.mainloop()
+```
+lalu ketikan pada jendela, terserah kalian text nya apa.
+
+![](image/img_7.png)
+
+**Get**
+
+Ok, kita masuk bagian `.get()` seperti di widget entry, kita bisa gunakan di widget text, namun indexing nya type string.
+
+disini saya mengambil baris pertama.
+
+```
+>>> textBox.get('1.0', '1.5')
+'baris'
+```
+
+**Delete**
+
+Lalu saya delete baris pertama
+
+```
+>>> textBox.delete('1.0', '1.5')
+```
+
+![](image/img_8.png)
+
+**Insert**
+
+Selanjutnya `.insert()`. Disini saya tambah lagi `.delete()` agar baris kedua menjadi baris pertama. Dan saya tambahkan text di belakang baris pertama.
+
+```
+>>> textBox.delete('1.0')
+>>> textBox.insert('1.5', ' ini baris kedua naik menjadi baris pertama')
+```
+
+Dan lihat perubahannya
+
+![](image/img_9.png)
+
+Apabila kita ingin membuat baris kedua, di `.insert()` argument pertama kita rubah `.insert('2.5', '1')`. Ini berarti kita menambahkan teks angka 1, pada baris kedua dimulai pada index ke 5.
+
+```
+>>> textBox.insert('2.5', '1')
+```
+
+![](image/img_10.png)
+
+Namun ada cara yang lebih efektif apabila kita ingin menambahkan teks terakhir. Alih-alih harus mengidentifikasi index terakhir, kita gunakan tk.END pada argumen pertama.
+
+```
+>>> textBox.insert(tk.END, '\n\n2')
+```
+
+![](image/img_11.png)
+
+
 
