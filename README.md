@@ -96,6 +96,7 @@ Kita akan mempelajari cara kerja masing-masing widget tersebut, kita tidak akan 
 ---
 ### Menampilkan Teks dan Gambar dengan widget Label
 ---
+
 ```python
 #!/usr/bin/python3
 
@@ -120,11 +121,74 @@ label2.pack()
 # loop
 window.mainloop()
 ```
+
 Tampilan jendela:
 
 ![](image/label1.png)
 
 Untuk melihat warna [disini](https://www.tcl.tk/man/tcl/TkCmd/colors.html).
 
-selain itu kita bisa menggunakan warna RGB, tapi tidak akan kita bahas.
+Selain itu kita bisa menggunakan warna RGB, tapi tidak akan kita bahas.
+
+---
+### Menampilkan Tombol yang Dapat di Klik Dengan Widget Button
+---
+
+Button adalah widget yang digunakan untuk menampilkan tombol. Kita dapat mengkonfigurasi dengan pemanggilan fungsi supaya program dapat berinteraksi. Namun kita bahas nanti. Banyak persamaan cara pembuatan button dan label. Mari lihat:
+
+```python
+button = tk.Button(text='click', width=10, height=5, bg='black', fg='red')
+```
+
+![](image/button1.png)
+
+---
+###  User Input Dengan Widget Entry
+---
+
+widget entry menampilkan kotak teks kecil tempat user dapat mengetikan beberapa teks.
+```python
+entry = tk.Entry(fg='red', bg='black', width=50)
+```
+![](image/entry1.png)
+
+Cara menggunakan untuk mendapatkan input user. Berikut 3 operasi utama:
+1. **Mengambil teks** dengan .get()
+2. **Menghapus teks** dengan .delete()
+3. **Menyisipkan teks** dengan .insert()
+
+Buka python shell di terminal:
+
+```
+>>> import tkinter as tk
+>>> window = tk.Tk()
+>>> label = tk.Label(text='Nama:')
+>>> entry = tk.Entry()
+>>> label.pack()
+>>> entry.pack()
+```
+
+![](image/img_1.png)
+
+Lalu masukan teks di jendela:
+
+![](image/img_2.png)
+
+Sekarang kita buat variabel baru, kita akan mengambil teks `Hello, World!` dan mengirimkannya ke dalam python shell.
+
+```
+>>> hello = entry.get()
+>>> hello
+'Hello, World!'
+```
+
+Lalu kita hapus teks menggunakan `.delete()`
+Blok kode berikut menghapus karakter pertama.
+```
+>>> entry.delete(0)
+```
+
+Teks di jendela akan seperti berikut:
+
+![](image/img_4.png)
 
